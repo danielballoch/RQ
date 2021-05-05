@@ -28,3 +28,5 @@ Next steps are
 https://css-tricks.com/guide-responsive-friendly-css-columns/ 
 https://www.w3schools.com/css/css3_multiple_columns.asp 
 https://codepen.io/spark/ 
+
+-hero resize for mobile done, now add menu drawer & fix footer sizing.

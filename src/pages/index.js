@@ -36,10 +36,17 @@ h3, li {
     /* flex-wrap: wrap;
     justify-content:flex-start;
     align-items: flex-start; */
-    -webkit-columns: 300px auto;
-    -moz-columns: 300px auto;
-    columns: 300px auto;
+    width: 100%;
+    max-height: 600px;
+    display: block;
+    background-color: white;
+    -webkit-columns: 1vw 2;
+    -moz-columns: 1vw 2;
+    columns: 1vw 2;
+    column-fill: auto;
     padding: 0;
+    align-self: flex-start;
+    /* margin-top: 10px; */
     h1 {
         font-size: 20px;
     }
@@ -55,11 +62,24 @@ background-color: white;
 padding: 30px 60px 30px 110px;
 width: 100%;
 @media (max-width: 1024px) {
-    max-width: 50%;
-    /* padding: 10px 10px 30px 30px; */
-    padding: 0;
+    display: none;
 }
 ` 
+const HeroTextMobile = styled.div`
+background-color: white;
+display: block;
+-webkit-column-break-inside: avoid;
+page-break-inside: avoid;
+break-inside: avoid;
+width: 100%;
+height: 100%;
+break-after: always;
+padding-top: 10px;
+@media (min-width: 1024px) {
+display: none;
+}
+`
+
 const HeroImage = styled.div`
 box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 z-index: 100;
@@ -74,6 +94,7 @@ margin-right: -50px;
     margin-right: 0px;
     height: 100%;
     width: 100%;
+    box-shadow: none;
 }
 `
 
@@ -105,7 +126,7 @@ flex-direction: row;
 :first-of-type div {
     max-width: 50%;
     width: 100%;
-    padding: 20px;
+    /* padding: 20px; */
     p {
         max-width: 270px;
     }
@@ -259,6 +280,7 @@ const IndexPage = () => {
         >
         {/* Any content here will be centered in the component */}
         <Hero>
+
         <HeroImage>
             <StaticImage src={"../images/profile.jpg"} />
         </HeroImage>
@@ -278,6 +300,26 @@ const IndexPage = () => {
                 ))}
                 </ul>
         </HeroText>
+
+        <HeroTextMobile>
+        <h3>Courts</h3>
+                <ul>
+                {courts.map((court) => (
+                    <li>{court}</li>
+                ))}
+                </ul>
+        </HeroTextMobile>
+
+        <HeroTextMobile>
+        <h1>Criminal & Traffic Lawyer Hamilton</h1>
+            <h3>Specialties</h3>
+            <ul>
+            {specialties.map((service) => (
+                <li>{service}</li>
+            ))}
+            </ul>
+        </HeroTextMobile>
+        
     
         
         
