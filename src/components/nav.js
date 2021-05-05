@@ -6,17 +6,39 @@ import {css} from '@emotion/react';
 
 const styles = ({menuOpen}) => css`
 background-color: red;
-
-sidebar {
-    position: fixed;
-    width: 50%; 
-    background-color: rgba(0,0,0,.5);
+@media (min-width: 1025px) {
+    display:none;
 }
 ${menuOpen === true &&`
 background-color: green;
 
 `}
 `
+
+const sidebarStyles = ({menuOpen}) => css`
+position: fixed;
+top: 0;
+right:0;
+z-index: 100;
+height: 100%;
+width: 70%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+a:hover {
+    cursor: pointer;
+}
+background-color: white;
+transition: .3s;
+@media (min-width: 1025px) {
+    display:none;
+}
+${menuOpen === true &&`
+background-color: rgba(0,0,0,0);
+transform: translateX(100%);
+`}
+`
+
 
 const Navbar = styled.div`
 position: fixed;
@@ -32,6 +54,7 @@ background-color: white;
 `
 const NavContent = styled.div`
 max-width: 960px;
+z-index: 1000;
 display: flex;
 align-items: center;
 justify-content: space-evenly;
@@ -64,6 +87,14 @@ border-bottom: white 2px solid;
     }
 `
 
+const DrawerLink = styled.a`
+padding: 10px 20px;
+font-size: 1.5em;
+:hover{
+        cursor: pointer;
+    }
+`
+
 
 const Logo = styled.div`
 display: flex;
@@ -86,6 +117,7 @@ p {
 
 export default function Nav(){
     const [menuOpen, setMenuOpen] = useState(false);
+    console.log(menuOpen)
     return (
     <Navbar>
         <NavContent>
@@ -116,7 +148,20 @@ export default function Nav(){
                 </span>
             </button>
         </NavContent>
-        <div className={menuOpen ? "sidebar" : "sidebar"}></div>
+        <div css={sidebarStyles({ menuOpen })}>
+                    <DrawerLink to="/#" >
+                        Home
+                    </DrawerLink>
+                    <DrawerLink to="/#">
+                        Services
+                    </DrawerLink>
+                    <DrawerLink to="/#">
+                        About
+                    </DrawerLink>
+                    <DrawerLink to="/#">
+                        Contact
+                    </DrawerLink>
+        </div>
     </Navbar>
     )
 }

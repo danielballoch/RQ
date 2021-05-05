@@ -75,7 +75,7 @@ width: 100%;
 height: 100%;
 break-after: always;
 padding-top: 10px;
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
 display: none;
 }
 `
@@ -282,7 +282,7 @@ const IndexPage = () => {
         <Hero>
 
         <HeroImage>
-            <StaticImage src={"../images/profile.jpg"} />
+            <StaticImage src={"../images/profile.jpg"} alt="Profile shot of Rob Quin in navy suit" />
         </HeroImage>
 
         <HeroText>

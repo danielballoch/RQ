@@ -9,6 +9,7 @@ align-items: center;
 justify-items: last baseline;
 width: 100%;
 height: 20vh;
+padding: 40px 0;
 background-color: #283759;
 /* background-color: #232323; */
 a{
@@ -19,7 +20,7 @@ a{
 `
 const Links = styled.div`
 font-size: 1.05em;
-height: 70px;
+min-height: 70px;
 padding: 0 18px;
 display: flex;
 flex-direction: column;
