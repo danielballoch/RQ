@@ -1,82 +1,194 @@
 import * as React from "react"
+import Layout from "../components/layout"
+import { StaticImage } from "gatsby-plugin-image"
+import styled from '@emotion/styled';
+import {GatsbyImage, getImage} from 'gatsby-plugin-image'
 
 // styles
 const pageStyles = {
+  marginTop: "100px",
   color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
+  fontFamily: "Segoe UI",
 }
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
+const Hero = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+
+font-family: 'Segoe UI';
+font-weight: 400;
+font-size: 16px;
+/* max-width: 670px; */
+/* background-color: white; */
+padding: 20px 40px;
+h1 {
+    font-weight: 400;
 }
-const headingAccentStyles = {
-  color: "#663399",
-}
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-}
-const listItemStyles = {
-  fontWeight: 300,
-  fontSize: 24,
-  maxWidth: 560,
-  marginBottom: 30,
+h3 {
+    color: #707070;
+    font-weight: 400;
 }
 
-const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
+h3, li {
+    margin-left: 20px;
+}
+@media (max-width: 1024px) {
+    /* flex-wrap: wrap;
+    justify-content:flex-start;
+    align-items: flex-start; */
+    -webkit-columns: 300px auto;
+    -moz-columns: 300px auto;
+    columns: 300px auto;
+    padding: 0;
+    h1 {
+        font-size: 20px;
+    }
+    h3 {
+        font-size: 18px;
+    }
 }
 
-const docLinkStyle = {
-  ...linkStyle,
-  listStyleType: "none",
-  marginBottom: 24,
+`
+const HeroText = styled.div`
+box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+background-color: white;
+padding: 30px 60px 30px 110px;
+width: 100%;
+@media (max-width: 1024px) {
+    max-width: 50%;
+    /* padding: 10px 10px 30px 30px; */
+    padding: 0;
+}
+` 
+const HeroImage = styled.div`
+box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+z-index: 100;
+max-height: 360px;
+height: 100%;
+width: 100%;
+max-width: 242px;
+margin-right: -50px;
+
+@media (max-width: 1024px) {
+    max-width: 242px;
+    margin-right: 0px;
+    height: 100%;
+    width: 100%;
+}
+`
+
+const About = styled.div`
+margin: auto;
+h1{
+    
+    font-weight: normal;
+}
+p {margin-top: 30px}
+padding: 20px 20px 160px 20px;
+max-width: 650px;
+background-color: white;
+`
+
+const Contact = styled.div`
+box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+h1 {
+    font-weight: 500;
+    font-size: 50px;
+    font-family: "Halant";
+}
+width: 960px;
+height: 500px;
+background-color: white;
+border: 5px solid #828FAD;
+display: flex;
+flex-direction: row;
+:first-of-type div {
+    max-width: 50%;
+    width: 100%;
+    padding: 20px;
+    p {
+        max-width: 270px;
+    }
+    ul {
+        padding: 0;
+        list-style: none;
+    }
+} 
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 50px 50px;
+
+    p {
+        margin-bottom: 2px;
+    }
+
+    label {
+        margin: 10px 0;
+        color: #707070;
+        
+    }
+    textarea, input, button {
+        border: 2px solid #828FAD;
+        width: 100%;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+    button {
+        background-color:#828FAD;
+        color: white;
+        height: 26px;
+        transition: .3s; 
+        :hover {
+            cursor: pointer;
+            opacity: 90%;
+        }
+    }
 }
 
-const descriptionStyle = {
-  color: "#232129",
-  fontSize: 14,
-  marginTop: 10,
-  marginBottom: 0,
-  lineHeight: 1.25,
+@media (max-width: 1024px) {
+    flex-direction: column;
+    width: 100%;
+    /* min-width: 360px; */
+    border: none;
+    justify-content: space-around;
+    height: auto;
+    :first-of-type div {
+        max-width: 100%;
+    }
+    form {
+        margin: auto;
+        justify-content: space-between;
+        max-width: 440px;
+    }
+}
+`
+
+const ContactInfo = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-end;
+width: 100%;
+h1, ul, p {
+    width: 270px;
 }
 
-const docLink = {
-  text: "Documentation",
-  url: "https://www.gatsbyjs.com/docs/",
-  color: "#8954A8",
+@media (max-width: 1024px) {
+    h1, ul, p {
+    min-width: 100px;
+    width: 100%;
+    max-width: 270px;
+    }
+    align-items: center;
+    /* width: 100%; */
+    form { 
+        width: 100%;
+    }
 }
+`
 
-const badgeStyle = {
-  color: "#fff",
-  backgroundColor: "#088413",
-  border: "1px solid #088413",
-  fontSize: 11,
-  fontWeight: "bold",
-  letterSpacing: 1,
-  borderRadius: 4,
-  padding: "4px 6px",
-  display: "inline-block",
-  position: "relative",
-  top: -2,
-  marginLeft: 10,
-  lineHeight: 1,
-}
 
 // data
 const links = [
@@ -86,98 +198,168 @@ const links = [
     description:
       "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
     color: "#E95800",
-  },
-  {
-    text: "How to Guides",
-    url: "https://www.gatsbyjs.com/docs/how-to/",
-    description:
-      "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
-    color: "#1099A8",
-  },
-  {
-    text: "Reference Guides",
-    url: "https://www.gatsbyjs.com/docs/reference/",
-    description:
-      "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
-    color: "#BC027F",
-  },
-  {
-    text: "Conceptual Guides",
-    url: "https://www.gatsbyjs.com/docs/conceptual/",
-    description:
-      "Big-picture explanations of higher-level Gatsby concepts. Most useful for building understanding of a particular topic.",
-    color: "#0D96F2",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-    color: "#8EB814",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    badge: true,
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-    color: "#663399",
-  },
+  }
 ]
+
+const specialties = [
+    "Bail",
+    "Trials",
+    "Traffic matters",
+    "Drink driving",
+    "Work licences",
+    "Assault",
+    "Fraud",
+    "Drug charges",
+    "Agency appearances",
+    "Legal aid",
+    "Diversion",
+    "Discharge without conviction"
+];
+const courts = ["Hamilton","Morrinsville","Huntly", "Te Awamutu"];
+
+const about = ["He specialises in criminal and traffic law. He has an excellent record of obtaining the best possible outcomes for clients appearing in Court on a wide range of charges.",
+"Rob appears regularly in the Hamilton, Morrinsville, Huntly and Te Awamutu Courts. He acts on a wide range of traffic matters including drink driving (EBA, DIC), careless or dangerous driving, wheel spinning, driving while disqualified, speeding and limited licence applications. Rob has assisted a number of clients in successfully defending traffic charges, avoiding losing their drivers licence and obtaining discharges without conviction or work licences.",
+"Rob acts on a variety of criminal matters including assault, theft, fraud and drug charges. He is experienced in negotiating with police to reduce or withdraw charges, obtaining diversion and discharges without conviction. He has an excellent record of getting bail for his clients, defending charges and getting the best possible sentencing outcomes."
+];
 
 // markup
 const IndexPage = () => {
   return (
-    <main style={pageStyles}>
-      <title>Home Page</title>
-      <h1 style={headingStyles}>
-        Congratulations
-        <br />
-        <span style={headingAccentStyles}>— you just made a Gatsby site! </span>
-        <span role="img" aria-label="Party popper emojis">
-          🎉🎉🎉
-        </span>
-      </h1>
-      <p style={paragraphStyles}>
-        Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
-        update in real-time.{" "}
-        <span role="img" aria-label="Sunglasses smiley emoji">
-          😎
-        </span>
-      </p>
-      <ul style={listStyles}>
-        <li style={docLinkStyle}>
-          <a
-            style={linkStyle}
-            href={`${docLink.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-          >
-            {docLink.text}
-          </a>
-        </li>
-        {links.map(link => (
-          <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
-            <span>
-              <a
-                style={linkStyle}
-                href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-              >
-                {link.text}
-              </a>
-              {link.badge && (
-                <span style={badgeStyle} aria-label="New Badge">
-                  NEW!
-                </span>
-              )}
-              <p style={descriptionStyle}>{link.description}</p>
-            </span>
-          </li>
-        ))}
-      </ul>
-      <img
-        alt="Gatsby G Logo"
-        src="data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a10 10 0 110 20 10 10 0 010-20zm0 2c-3.73 0-6.86 2.55-7.75 6L14 19.75c3.45-.89 6-4.02 6-7.75h-5.25v1.5h3.45a6.37 6.37 0 01-3.89 4.44L6.06 9.69C7 7.31 9.3 5.63 12 5.63c2.13 0 4 1.04 5.18 2.65l1.23-1.06A7.959 7.959 0 0012 4zm-8 8a8 8 0 008 8c.04 0 .09 0-8-8z' fill='%23639'/%3E%3C/svg%3E"
-      />
-    </main>
+    <Layout>
+        <main style={pageStyles}>
+        <title>Home Page</title>
+         {/* Hero Section */}
+        <div style={{ display: "grid" }}>
+        {/* You can use a GatsbyImage component if the image is dynamic */}
+        <StaticImage
+            style={{
+            gridArea: "1/1",
+            // You can set a maximum height for the image, if you wish.
+            // maxHeight: 900,
+            minHeight: "700px",
+            }}
+            layout="fullWidth"
+         // You can optionally force an aspect ratio for the generated image
+            aspectRatio={5 / 2}
+            // This is a presentational image, so the alt should be an empty string
+            alt=""
+            // Assisi, Perúgia, Itália by Bernardo Ferrari, via Unsplash
+            src={"../images/HeroLabel.png"}
+            formats={["auto", "webp", "avif"]}
+        />
+        <div
+            style={{
+            // By using the same grid area for both, they are stacked on top of each other
+            gridArea: "1/1",
+            position: "relative",
+            // This centers the other elements inside the hero component
+            placeItems: "center",
+            display: "grid",
+            }}
+        >
+        {/* Any content here will be centered in the component */}
+        <Hero>
+        <HeroImage>
+            <StaticImage src={"../images/profile.jpg"} />
+        </HeroImage>
+
+        <HeroText>
+            <h1>Criminal & Traffic Lawyer Hamilton</h1>
+            <h3>Specialties</h3>
+            <ul>
+            {specialties.map((service) => (
+                <li>{service}</li>
+            ))}
+            </ul>
+            <h3>Courts</h3>
+                <ul>
+                {courts.map((court) => (
+                    <li>{court}</li>
+                ))}
+                </ul>
+        </HeroText>
+    
+        
+        
+            
+        </Hero>
+       
+      </div> 
+      </div>
+
+      {/* About Section */}
+      <About>
+            <h1>Rob has been a lawyer in Hamilton since 2005 </h1>
+            {about.map((paragraph)=>(
+                <p>{paragraph}</p>
+            ))}
+        </About>
+
+    {/* Contact Section */}
+    <div style={{ display: "grid" }}>
+        {/* You can use a GatsbyImage component if the image is dynamic */}
+        <StaticImage
+            style={{
+            gridArea: "1/1",
+            // You can set a maximum height for the image, if you wish.
+            // maxHeight: 900, 
+            minHeight: "700px",
+            }}
+            layout="fullWidth"
+         // You can optionally force an aspect ratio for the generated image
+            aspectRatio={5 / 2}
+            // This is a presentational image, so the alt should be an empty string
+            alt=""
+            // Assisi, Perúgia, Itália by Bernardo Ferrari, via Unsplash
+            src={"../images/contact3.png"}
+            formats={["auto", "webp", "avif"]}
+        />
+        <div
+            style={{
+            // By using the same grid area for both, they are stacked on top of each other
+            gridArea: "1/1",
+            position: "relative",
+            // This centers the other elements inside the hero component
+            placeItems: "center",
+            display: "grid",
+            }}
+        >
+            <Contact>
+            <ContactInfo>
+                <h1>Contact:</h1>
+                <p>For a no obligations discussion to see if Robs a fit for you please use the contact information below or send an enquiry.</p>
+                <ul>
+                    <li>M 021 216 2841</li>
+                    <li>P 07 839 2369</li>
+                    <li>F 07 839 2366</li>
+                    <li>Email: rob@robquin.co.nz</li>
+                </ul>
+            </ContactInfo>
+            <div>
+            <form method="post" action="#">
+                <label>
+                        <p>Name:</p>
+                        <input type="text" name="name" />
+                </label>
+                <label>
+                    <p>Email:</p>
+                    <input type="email" name="email" />
+                </label>
+                <label>
+                    <p>Enquiry:</p>
+                    <textarea name="message" id="message" rows="5" />
+                </label>
+                <button type="submit">Send</button>
+                </form>
+            </div>
+                
+            </Contact>
+
+        </div>
+    </div>
+    
+        </main>
+    </Layout>
   )
 }
 

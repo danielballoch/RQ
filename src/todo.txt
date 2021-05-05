@@ -1,0 +1,30 @@
+Next steps are 
+
+1. adding footer content and theme * done
+2. fixing grid background responsivness and making mobile friendly - created xd prototypes
+*now I just need to figure out the break points and make the design shift for mobile. * responsive text for logo (not img) since less than 16px is illigible.
+
+-fixed image size (added min height) - now make responsive - breakpoints, adobe xd draft
+
+3. functionality (links, form)
+
+4. optional could be downloading some royalty free images and recreating the hero and contact backgrounds? *done.
+
+
+**** priority should be recreating background images since these need to be HD if they're blown up, keep the feel, make it look nice. Greyscale? *done
+
+778 * 1024 switch to tablet/mobile.
+
+
+28/04/2021
+-padding for about section 
+- alignment for contact section 
+*set overflow to none for hero and contact p to see which is causing horizontal scroll.
+
+-grid for hero section?? *columns not grid (w flow direction instead of z direction)
+- menu for nav + font size
+-overflow on contact section -> padding?
+
+https://css-tricks.com/guide-responsive-friendly-css-columns/ 
+https://www.w3schools.com/css/css3_multiple_columns.asp 
+https://codepen.io/spark/ 
