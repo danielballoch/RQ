@@ -244,15 +244,15 @@ export default function Nav(){
                 <NavLink onClick={() => scrollTo("#homeSection","center")}>
                         Home
                     </NavLink>
-                    -
+                    
                     <NavLink onClick={() => scrollTo("#homeSection","center")}>
                         Services
                     </NavLink>
-                    -
+                    
                     <NavLink onClick={() => scrollTo("#aboutSection","center")}>
                         About
                     </NavLink>
-                    -
+                    
                     <NavLink onClick={() => scrollTo("#contactSection","center")}>
                         Contact
                     </NavLink>

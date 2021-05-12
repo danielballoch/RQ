@@ -44,3 +44,12 @@ https://stackoverflow.com/questions/61467803/how-to-use-intersectionobserver-wit
 
 8/05/2021
 added nav function + adjusted for mobile spacing. About section still not quite right ;/
+
+13/05/2021
+*updated nav shadow
+-bg image for contact on mobile? *no, just take away shadow (done)
+
+1. get online w/ gatsby cloud *done
+2.audit(save)
+3.do final steps, make it easy to edit (cms?), refactor code, create Favicon
+
