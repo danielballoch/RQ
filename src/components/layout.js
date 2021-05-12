@@ -20,6 +20,7 @@ const Layout = ({ children }) => {
       site {
         siteMetadata {
           title
+          description
         }
       }
     }
@@ -30,6 +31,7 @@ const Layout = ({ children }) => {
       <div>
       <Helmet>
             <meta charSet="utf-8" lang="en"/>
+            <meta name="description" content={data.site.siteMetadata.description}/>
             <title>{data.site.siteMetadata.title}</title>
             <link rel="canonical" href="https://robquin.gatsbyjs.io/" />
       </Helmet>
