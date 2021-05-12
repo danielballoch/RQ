@@ -1,4 +1,12 @@
 module.exports = {
+    siteMetadata: {
+        title: `Rob Quin Barrister : Criminal & Traffic Lawyer Hamilton`,
+        description: `Rob has been practicing as a lawyer in Hamilton since 2005.
+        He specialises in criminal and traffic law. He has an excellent record of obtaining the best
+        possible outcomes for clients appearing in Court on a wide range of charges.`,
+        author: `thoughtfulHQ`,
+        siteUrl: "https://robquin.gatsbyjs.io/"
+    },
   plugins: [
     "gatsby-plugin-emotion",
     "gatsby-plugin-gatsby-cloud",
