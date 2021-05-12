@@ -8,7 +8,7 @@ import {GatsbyImage, getImage} from 'gatsby-plugin-image'
 const pageStyles = {
   marginTop: "100px",
   color: "#232129",
-  fontFamily: "Segoe UI",
+  fontFamily: "Open Sans",
 }
 const Hero = styled.div`
 display: flex;
@@ -171,6 +171,7 @@ form {
 @media (max-width: 1024px) {
     flex-direction: column;
     width: 100%;
+    box-shadow: none;
     /* min-width: 360px; */
     border: none;
     justify-content: space-around;
@@ -188,6 +189,7 @@ form {
 
 const ContactInfo = styled.div`
 display: flex;
+
 flex-direction: column;
 justify-content: center;
 align-items: flex-end;
@@ -208,6 +210,15 @@ h1, ul, p {
         width: 100%;
     }
 }
+`
+
+const MobileId = styled.div`
+position: absolute;
+top: -100px;
+`
+
+const AboutId = styled.div`
+top: -50px;
 `
 
 
@@ -249,10 +260,13 @@ const IndexPage = () => {
     <Layout>
         <main style={pageStyles}>
         <title>Home Page</title>
+        
          {/* Hero Section */}
-        <div style={{ display: "grid" }}>
+        <div style={{ display: "grid" }} id="homeSection">
+        
         {/* You can use a GatsbyImage component if the image is dynamic */}
         <StaticImage
+            
             style={{
             gridArea: "1/1",
             // You can set a maximum height for the image, if you wish.
@@ -280,6 +294,7 @@ const IndexPage = () => {
         >
         {/* Any content here will be centered in the component */}
         <Hero>
+        <MobileId id="homeM"/>
 
         <HeroImage>
             <StaticImage src={"../images/profile.jpg"} alt="Profile shot of Rob Quin in navy suit" />
@@ -330,15 +345,18 @@ const IndexPage = () => {
       </div>
 
       {/* About Section */}
-      <About>
-            <h1>Rob has been a lawyer in Hamilton since 2005 </h1>
+      <AboutId id="aboutM"/>
+      <About id="aboutSection">
+            <h1 >Rob has been a lawyer in Hamilton since 2005 </h1>
             {about.map((paragraph)=>(
                 <p>{paragraph}</p>
             ))}
+            
         </About>
 
     {/* Contact Section */}
-    <div style={{ display: "grid" }}>
+    <div style={{ display: "grid" }} id="contactSection">
+    
         {/* You can use a GatsbyImage component if the image is dynamic */}
         <StaticImage
             style={{
@@ -367,6 +385,7 @@ const IndexPage = () => {
             }}
         >
             <Contact>
+            <MobileId id="contactM"/>
             <ContactInfo>
                 <h1>Contact:</h1>
                 <p>For a no obligations discussion to see if Robs a fit for you please use the contact information below or send an enquiry.</p>

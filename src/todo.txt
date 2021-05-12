@@ -29,4 +29,18 @@ https://css-tricks.com/guide-responsive-friendly-css-columns/
 https://www.w3schools.com/css/css3_multiple_columns.asp 
 https://codepen.io/spark/ 
 
--hero resize for mobile done, now add menu drawer & fix footer sizing.
+-hero resize for mobile done, now add menu drawer & fix footer sizing *done.
+
+*done mobile toggle button and drawer animation
+gatsby develop -H 0.0.0.0 to test on mobile
+*added gatsby-plugin-web-font-loader for google fonts since fonts were not loading on mobile
+https://www.gatsbyjs.com/docs/how-to/styling/using-web-fonts/ 
+...which did not work so trying the self host instead
+-that did the trick :)
+
+-last thing is the nav functionality
+https://github.com/freddydumont/gatsby-plugin-smoothscroll 
+https://stackoverflow.com/questions/61467803/how-to-use-intersectionobserver-with-react-hooks-in-gatsby 
+
+8/05/2021
+added nav function + adjusted for mobile spacing. About section still not quite right ;/

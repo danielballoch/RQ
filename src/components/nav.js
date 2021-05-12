@@ -1,16 +1,97 @@
 import React, {Component, useState} from "react"
 import styled from '@emotion/styled';
 import {css} from '@emotion/react';
+import scrollTo from 'gatsby-plugin-smoothscroll';
 
 //Nav
 
 const styles = ({menuOpen}) => css`
-background-color: red;
+    display: block;
+    padding: 15px;
+    cursor: pointer;
+    transition-property: opacity, filter;
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
+    font: inherit;
+    color: inherit;
+    text-transform: none;
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    overflow: visible;
+.hamburger-box {
+    width: 40px;
+    height: 24px;
+    display: inline-block;
+    position: relative;
+}
+.hamburger-inner {
+        display: block;
+        top: 50%;
+        margin-top: 8px;
+        width: 40px;
+        height: 4px;
+        background-color: #000;
+        border-radius: 4px;
+        position: absolute;
+        transition-property: transform;
+        transition-duration: 0.15s;
+        transition-timing-function: ease;
+
+        transition-duration: 0.075s;
+        transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);    
+}
+.hamburger-inner:before {
+        transition: top 0.075s 0.12s ease,
+        opacity 0.075s ease;
+        left: 0;
+        top: -10px;
+        width: 40px;
+        height: 4px;
+        background-color: #000;
+        border-radius: 4px;
+        position: absolute;
+        content: "";
+}
+
+.hamburger-inner:after {
+        transition: bottom 0.075s 0.12s ease,
+        transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        content: "";
+        left: 0;
+        bottom: -10px;
+        width: 40px;
+        height: 4px;
+        background-color: #000;
+        border-radius: 4px;
+        position: absolute;
+}
+
 @media (min-width: 1025px) {
     display:none;
 }
 ${menuOpen === true &&`
-background-color: green;
+.hamburger-inner-active {
+        transform: rotate(45deg);
+        transition-delay: 0.12s;
+        transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+      }
+    .hamburger-inner-active::before {
+        content: "";
+        top: 0;
+        opacity: 0;
+        transition: top 0.075s ease,
+        opacity 0.075s 0.12s ease;
+    }
+    
+    .hamburger-inner-active::after {
+        content: "";
+        bottom: 0;
+        transform: rotate(-90deg);
+        transition: bottom 0.075s ease,
+        transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
 
 `}
 `
@@ -25,17 +106,46 @@ width: 70%;
 display: flex;
 flex-direction: column;
 justify-content: center;
+transform: translateX(100%);
+background-color: white;
 a:hover {
     cursor: pointer;
 }
-background-color: white;
 transition: .3s;
+.backdrop{
+    position: fixed;
+    z-index: 50;
+    top: 110px;
+    left: 0;
+    transition: .2s;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: .5;
+}
 @media (min-width: 1025px) {
     display:none;
 }
 ${menuOpen === true &&`
-background-color: rgba(0,0,0,0);
-transform: translateX(100%);
+background-color: white;
+transform: translateX(0%);
+`}
+`
+const backdropStyle = ({menuOpen}) => css`
+    
+@media (min-width: 1025px) {
+    display:none;
+}
+${menuOpen === true &&`
+    position: fixed;
+    z-index: 50;
+    top: 110px;
+    left: 0;
+    transition: .2s;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: .5;
 `}
 `
 
@@ -51,6 +161,10 @@ justify-content: center;
 width: 100%;
 z-index: 1000;
 background-color: white; 
+/* inset */
+/* box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;  */
+/* min github */
+box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
 `
 const NavContent = styled.div`
 max-width: 960px;
@@ -60,7 +174,6 @@ align-items: center;
 justify-content: space-evenly;
 height: 100px;
 width: 100%;
-
 a{
     font-size: 1.1em;
     font-weight: 100;
@@ -88,6 +201,8 @@ border-bottom: white 2px solid;
 `
 
 const DrawerLink = styled.a`
+color: black;
+text-decoration: none;
 padding: 10px 20px;
 font-size: 1.5em;
 :hover{
@@ -119,49 +234,51 @@ export default function Nav(){
     const [menuOpen, setMenuOpen] = useState(false);
     console.log(menuOpen)
     return (
-    <Navbar>
-        <NavContent>
-        <Logo>
-            <h1>Rob Quin</h1><p>Barrister LLB(hons)</p>
-        </Logo>
-            <Links>
-                    <NavLink to="/" >
+    <div>    
+        <Navbar>
+            <NavContent>
+                <Logo>
+                    <h1>Rob Quin</h1><p>Barrister LLB(Hons)</p>
+                </Logo>
+                <Links>
+                <NavLink onClick={() => scrollTo("#homeSection","center")}>
                         Home
                     </NavLink>
                     -
-                    <NavLink to="/">
+                    <NavLink onClick={() => scrollTo("#homeSection","center")}>
                         Services
                     </NavLink>
                     -
-                    <NavLink to="/">
+                    <NavLink onClick={() => scrollTo("#aboutSection","center")}>
                         About
                     </NavLink>
                     -
-                    <NavLink to="/">
+                    <NavLink onClick={() => scrollTo("#contactSection","center")}>
                         Contact
                     </NavLink>
-            </Links>
-            <button css={styles({ menuOpen })} onClick={() => setMenuOpen(!menuOpen) }>
-                Menu
-                <span>
-                    <span></span>
-                </span>
-            </button>
-        </NavContent>
-        <div css={sidebarStyles({ menuOpen })}>
-                    <DrawerLink to="/#" >
-                        Home
-                    </DrawerLink>
-                    <DrawerLink to="/#">
-                        Services
-                    </DrawerLink>
-                    <DrawerLink to="/#">
-                        About
-                    </DrawerLink>
-                    <DrawerLink to="/#">
-                        Contact
-                    </DrawerLink>
-        </div>
-    </Navbar>
+                </Links>
+                <button css={styles({ menuOpen })} onClick={() => setMenuOpen(!menuOpen) }>
+                    <span className="hamburger-box">
+                        <span className={menuOpen? "hamburger-inner hamburger-inner-active" : "hamburger-inner"}></span>
+                    </span>
+                </button>
+            </NavContent>
+        </Navbar>
+    <div css={sidebarStyles({ menuOpen })}>
+        <DrawerLink onClick={() => {scrollTo("#homeM","start"); setMenuOpen(!menuOpen)}}>
+            Home
+        </DrawerLink>
+        <DrawerLink onClick={() => {scrollTo("#homeM","start"); setMenuOpen(!menuOpen)}}>
+            Services
+        </DrawerLink>
+        <DrawerLink onClick={() => {scrollTo("#aboutM","start"); setMenuOpen(!menuOpen)}}>
+            About
+        </DrawerLink>
+        <DrawerLink onClick={() => {scrollTo("#contactM","start"); setMenuOpen(!menuOpen)}}>
+            Contact
+        </DrawerLink>
+    </div> 
+    <div css={backdropStyle({ menuOpen })} onClick={() => setMenuOpen(!menuOpen)}/>
+    </div>
     )
 }
