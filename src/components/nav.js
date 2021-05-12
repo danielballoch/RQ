@@ -257,7 +257,7 @@ export default function Nav(){
                         Contact
                     </NavLink>
                 </Links>
-                <button css={styles({ menuOpen })} onClick={() => setMenuOpen(!menuOpen) }>
+                <button css={styles({ menuOpen })} onClick={() => setMenuOpen(!menuOpen)} aria-label="Navigation menu toggle">
                     <span className="hamburger-box">
                         <span className={menuOpen? "hamburger-inner hamburger-inner-active" : "hamburger-inner"}></span>
                     </span>

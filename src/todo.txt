@@ -51,5 +51,6 @@ added nav function + adjusted for mobile spacing. About section still not quite 
 
 1. get online w/ gatsby cloud *done
 2.audit(save)
-3.do final steps, make it easy to edit (cms?), refactor code, create Favicon
+3. get feedback from Mak (and Rob?)
+4.do final steps, make it easy to edit (cms?), refactor code, create Favicon
 

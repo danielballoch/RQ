@@ -8,6 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql, withAssetPrefix } from "gatsby"
+import { Helmet } from "react-helmet"
 import { Global, css } from '@emotion/react'
 import Nav from './nav'
 import Footer from './footer'
@@ -27,6 +28,11 @@ const Layout = ({ children }) => {
   return (
     <>
       <div>
+      <Helmet>
+            <meta charSet="utf-8" lang="en"/>
+            <title>{data.site.siteMetadata.title}</title>
+            <link rel="canonical" href="https://robquin.gatsbyjs.io/" />
+      </Helmet>
       <Global
           styles={css`
             body {
