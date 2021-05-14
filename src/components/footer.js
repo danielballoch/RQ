@@ -21,10 +21,11 @@ a{
 a:hover {
     cursor: pointer;
 }
-li {
+p {
     color: white;
     text-decoration: none;
     padding: 0 8px;
+    margin: 0;
     list-style: none;
 }
 `
@@ -62,15 +63,15 @@ const blog = () => {
                     <a onClick={() => {scrollTo("#contactSection","center");}}>Contact</a>     
                 </Links>
                 <Links>
-                    <li>Postal:</li>
-                    <li>PO Box 20109</li>
-                    <li>Te Rapa</li>
-                    <li>Hamilton 3241</li>     
+                    <p>Postal:</p>
+                    <p>PO Box 20109</p>
+                    <p>Te Rapa</p>
+                    <p>Hamilton 3241</p>     
                 </Links>
                 <Links>
-                    <li>Office:</li>
-                    <li>71 Anglesea Street</li>
-                    <li>Hamilton 3241</li>  
+                        <p>Office:</p>
+                        <p>71 Anglesea Street</p>
+                        <p>Hamilton 3241</p>  
                 </Links>
                 
             </LinkSection>
