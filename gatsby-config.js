@@ -5,7 +5,7 @@ module.exports = {
         He specialises in criminal and traffic law. He has an excellent record of obtaining the best
         possible outcomes for clients appearing in Court on a wide range of charges.`,
         author: `thoughtfulHQ`,
-        siteUrl: "https://robquin.gatsbyjs.io/"
+        siteUrl: "https://robquin.gtsb.io/"
     },
   plugins: [
     "gatsby-plugin-emotion",
