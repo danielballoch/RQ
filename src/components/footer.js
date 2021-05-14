@@ -1,5 +1,6 @@
 import React from "react"
 import styled from '@emotion/styled';
+import scrollTo from 'gatsby-plugin-smoothscroll';
 
 const LinkSection = styled.div`
 display: flex;
@@ -15,7 +16,16 @@ background-color: #283759;
 a{
     color: white;
     text-decoration: none;
+    padding: 12px 8px;
+}
+a:hover {
+    cursor: pointer;
+}
+li {
+    color: white;
+    text-decoration: none;
     padding: 0 8px;
+    list-style: none;
 }
 `
 const Links = styled.div`
@@ -46,21 +56,21 @@ const blog = () => {
         <div>
             <LinkSection>
                 <Links>
-                    <a href="https://www.linkedin.com/in/danielpatrickballoch/">Home</a>
-                    <a href="https://dribbble.com/danielballoch">About</a>
-                    <a href="https://www.instagram.com/thoughtful_hq/">Services</a>
-                    <a href="https://github.com/danielballoch">Contact</a>     
+                    {/* <a onClick={() => {scrollTo("#homeSection","center");}}>Home</a> */}
+                    <a onClick={() => {scrollTo("#homeSection","center");}}>Services</a>
+                    <a onClick={() => {scrollTo("#aboutSection","center");}}>About</a>
+                    <a onClick={() => {scrollTo("#contactSection","center");}}>Contact</a>     
                 </Links>
                 <Links>
-                    <a href="https://www.linkedin.com/in/danielpatrickballoch/">Postal:</a>
-                    <a href="https://dribbble.com/danielballoch">PO Box 20109</a>
-                    <a href="https://www.instagram.com/thoughtful_hq/">Te Rapa</a>
-                    <a href="https://github.com/danielballoch">Hamilton 3241</a>     
+                    <li>Postal:</li>
+                    <li>PO Box 20109</li>
+                    <li>Te Rapa</li>
+                    <li>Hamilton 3241</li>     
                 </Links>
                 <Links>
-                    <a href="https://www.linkedin.com/in/danielpatrickballoch/">Office:</a>
-                    <a href="https://dribbble.com/danielballoch">71 Anglesea Street</a>
-                    <a href="https://www.instagram.com/thoughtful_hq/">Hamilton 3241</a>  
+                    <li>Office:</li>
+                    <li>71 Anglesea Street</li>
+                    <li>Hamilton 3241</li>  
                 </Links>
                 
             </LinkSection>

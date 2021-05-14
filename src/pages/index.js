@@ -105,7 +105,8 @@ h1{
     font-weight: normal;
 }
 p {margin-top: 30px}
-padding: 20px 20px 160px 20px;
+/* padding: 20px 20px 160px 20px; */
+padding: 40px 20px 100px 20px;
 max-width: 650px;
 background-color: white;
 `
@@ -157,13 +158,17 @@ form {
         -moz-box-sizing: border-box;
     }
     button {
-        background-color:#828FAD;
+        /* background-color:#828FAD; */
+        background-color: #283759;
+        border-color: #283759;
         color: white;
         height: 26px;
         transition: .3s; 
         :hover {
             cursor: pointer;
-            opacity: 90%;
+            background-color:#828FAD;
+            border-color: #828FAD;
+            /* opacity: 90%; */
         }
     }
 }

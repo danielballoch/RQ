@@ -241,9 +241,9 @@ export default function Nav(){
                     <h1>Rob Quin</h1><p>Barrister LLB(Hons)</p>
                 </Logo>
                 <Links>
-                <NavLink onClick={() => scrollTo("#homeSection","center")}>
+                {/* <NavLink onClick={() => scrollTo("#homeSection","center")}>
                         Home
-                    </NavLink>
+                    </NavLink> */}
                     
                     <NavLink onClick={() => scrollTo("#homeSection","center")}>
                         Services
@@ -265,9 +265,9 @@ export default function Nav(){
             </NavContent>
         </Navbar>
     <div css={sidebarStyles({ menuOpen })}>
-        <DrawerLink onClick={() => {scrollTo("#homeM","start"); setMenuOpen(!menuOpen)}}>
+        {/* <DrawerLink onClick={() => {scrollTo("#homeM","start"); setMenuOpen(!menuOpen)}}>
             Home
-        </DrawerLink>
+        </DrawerLink> */}
         <DrawerLink onClick={() => {scrollTo("#homeM","start"); setMenuOpen(!menuOpen)}}>
             Services
         </DrawerLink>
