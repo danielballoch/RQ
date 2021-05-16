@@ -223,7 +223,8 @@ top: -100px;
 `
 
 const AboutId = styled.div`
-top: -50px;
+position: relative;
+top: -86px;
 `
 
 
