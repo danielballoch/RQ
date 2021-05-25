@@ -70,4 +70,10 @@ wordpress cms & gravity forms
 redirect domain with cpanel: https://www.robquin.co.nz:2083/cpsess4653581040/frontend/paper_lantern/mime/redirect.html
 
 25/05/2021
+-destructured/cleaned everything
 using GetForm for the form, set this up as a component with state hook, test and then redirect domain.
+https://docs.getform.io/integrations/gatsby/ 
+
+Working, need to create thank you model on state change
+
+*timer so it goes up and then toggles again.

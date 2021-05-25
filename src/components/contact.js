@@ -1,6 +1,25 @@
-import React from "react"
+import React, {useState} from "react"
 import styled from '@emotion/styled';
 import { StaticImage } from "gatsby-plugin-image"
+import axios from "axios";
+import {css} from '@emotion/react';
+
+const styles = (formSent) => css`
+position: absolute;
+opacity: 0;
+transition: 1s;
+${formSent === true &&`
+opacity: 1;
+position: fixed;
+left:5%;
+top: 40%;
+width: 90%;
+height: 40%;
+text-align: center;
+background-color: green;
+color: white;
+`}
+`
 
 const ContactDiv = styled.div`
 box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
@@ -111,6 +130,46 @@ h1, ul, p {
 
 
 const Contact = () => {
+
+    const [serverState, setServerState] = useState({
+        submitting: false,
+        formSent: false,
+        status: null
+      });
+      const handleServerResponse = (ok, msg, form) => {
+        setServerState({
+          status: { ok, msg }
+        });
+        if (ok) {
+          setServerState({
+              formSent: true
+          });
+          console.log("form sent: ", serverState.formSent)
+          form.reset();
+        }
+      };
+      const handleOnSubmit = e => {
+        e.preventDefault();
+        console.log("press")
+        setServerState({
+            formSent: !serverState.formSent
+        });
+        // const form = e.target;
+        // setServerState({ submitting: true });
+        // axios({
+        //   method: "post",
+        //   url: "https://getform.io/f/1db4c410-82ad-415d-a3bd-da32a6487bb4",
+        //   data: new FormData(form)
+        // })
+        //   .then(r => {
+        //     handleServerResponse(true, "Thanks!", form);
+        //   })
+        //   .catch(r => {
+        //     handleServerResponse(false, r.response.data.error, form);
+        //   });
+      };
+      
+      console.log("ServerState:", serverState)
     return(
         <div style={{ display: "grid" }} id="contactSection">
 
@@ -143,6 +202,8 @@ const Contact = () => {
         >
 
         <ContactDiv>
+        {/* class={serverState.formSent ? "sent" : ""} */}
+            <span css={styles(serverState.formSent)}>Form Submitted!</span>
             <ContactInfo>
             <h1>Contact:</h1>
             <p>For a no obligations discussion to see if Robs a fit for you please use the contact information below or send an enquiry.</p>
@@ -154,7 +215,7 @@ const Contact = () => {
             </ul>
             </ContactInfo>
             <div>
-                <form method="post" action="#">
+                <form onSubmit={handleOnSubmit}>
                     <label>
                             <p>Name:</p>
                             <input type="text" name="name" />
