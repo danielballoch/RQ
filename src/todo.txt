@@ -66,5 +66,8 @@ FAAS, Zapier or Datafire https://medium.com/datafire-io/simple-backends-four-way
 wordpress cms & gravity forms
 
 
+
 redirect domain with cpanel: https://www.robquin.co.nz:2083/cpsess4653581040/frontend/paper_lantern/mime/redirect.html
 
+25/05/2021
+using GetForm for the form, set this up as a component with state hook, test and then redirect domain.
