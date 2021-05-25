@@ -1,8 +1,9 @@
 import * as React from "react"
-import Layout from "../components/layout"
 import { StaticImage } from "gatsby-plugin-image"
 import styled from '@emotion/styled';
 import {GatsbyImage, getImage} from 'gatsby-plugin-image'
+import Layout from "../components/layout"
+import ContactComponent from "../components/contact"
 
 // styles
 const pageStyles = {
@@ -359,72 +360,7 @@ const IndexPage = () => {
             ))}
             
         </About>
-
-    {/* Contact Section */}
-    <div style={{ display: "grid" }} id="contactSection">
-    
-        {/* You can use a GatsbyImage component if the image is dynamic */}
-        <StaticImage
-            style={{
-            gridArea: "1/1",
-            // You can set a maximum height for the image, if you wish.
-            // maxHeight: 900, 
-            minHeight: "700px",
-            }}
-            layout="fullWidth"
-         // You can optionally force an aspect ratio for the generated image
-            aspectRatio={5 / 2}
-            // This is a presentational image, so the alt should be an empty string
-            alt=""
-            // Assisi, Perúgia, Itália by Bernardo Ferrari, via Unsplash
-            src={"../images/contact3.png"}
-            formats={["auto", "webp", "avif"]}
-        />
-        <div
-            style={{
-            // By using the same grid area for both, they are stacked on top of each other
-            gridArea: "1/1",
-            position: "relative",
-            // This centers the other elements inside the hero component
-            placeItems: "center",
-            display: "grid",
-            }}
-        >
-            <Contact>
-            <MobileId id="contactM"/>
-            <ContactInfo>
-                <h1>Contact:</h1>
-                <p>For a no obligations discussion to see if Robs a fit for you please use the contact information below or send an enquiry.</p>
-                <ul>
-                    <li>M 021 216 2841</li>
-                    <li>P 07 839 2369</li>
-                    <li>F 07 839 2366</li>
-                    <li>Email: rob@robquin.co.nz</li>
-                </ul>
-            </ContactInfo>
-            <div>
-            <form method="post" action="#">
-                <label>
-                        <p>Name:</p>
-                        <input type="text" name="name" />
-                </label>
-                <label>
-                    <p>Email:</p>
-                    <input type="email" name="email" />
-                </label>
-                <label>
-                    <p>Enquiry:</p>
-                    <textarea name="message" id="message" rows="5" />
-                </label>
-                <button type="submit">Send</button>
-                </form>
-            </div>
-                
-            </Contact>
-
-        </div>
-    </div>
-    
+        <ContactComponent/>
         </main>
     </Layout>
   )

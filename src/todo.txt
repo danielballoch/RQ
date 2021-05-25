@@ -55,3 +55,16 @@ added nav function + adjusted for mobile spacing. About section still not quite 
 4.do final steps, make it easy to edit (cms?), refactor code, create Favicon
 -fix about scroll on mobile*done
 
+
+22/05/2021
+forms - there's the actual form itself and then the form hosting 
+
+Form: twilio, formik 
+
+Form host options: Formsubmit, Formspree, SendGrid Google Apps Mail (https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server)
+FAAS, Zapier or Datafire https://medium.com/datafire-io/simple-backends-four-ways-to-implement-a-contact-us-form-on-a-static-website-10fc430984a4 
+wordpress cms & gravity forms
+
+
+redirect domain with cpanel: https://www.robquin.co.nz:2083/cpsess4653581040/frontend/paper_lantern/mime/redirect.html
+
