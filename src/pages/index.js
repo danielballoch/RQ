@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import {GatsbyImage, getImage} from 'gatsby-plugin-image'
 import Layout from "../components/layout"
 import ContactComponent from "../components/contact"
+import AboutComponent from "../components/about"
 
 // styles
 const pageStyles = {
@@ -350,16 +351,7 @@ const IndexPage = () => {
        
       </div> 
       </div>
-
-      {/* About Section */}
-      <AboutId id="aboutM"/>
-      <About id="aboutSection">
-            <h1 >Rob has been a lawyer in Hamilton since 2005 </h1>
-            {about.map((paragraph)=>(
-                <p>{paragraph}</p>
-            ))}
-            
-        </About>
+        <AboutComponent aboutInfo={about}/>
         <ContactComponent/>
         </main>
     </Layout>
