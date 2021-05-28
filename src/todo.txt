@@ -77,3 +77,12 @@ https://docs.getform.io/integrations/gatsby/
 Working, need to create thank you model on state change
 
 *timer so it goes up and then toggles again.
+
+*form animation -> prototype some basic resonses in xd and transfer to vsc
+27/05/2021
+-need to figure out how setTimer/state in hooks works (useEffect) so I can get
+message to go transparent again after 3s.
+https://reactjs.org/docs/hooks-effect.html 
+
+28/05/2021 
+-try useEffect instead of function

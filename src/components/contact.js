@@ -1,23 +1,33 @@
-import React, {useState} from "react"
+import React, {useEffect, useState} from "react"
 import styled from '@emotion/styled';
 import { StaticImage } from "gatsby-plugin-image"
 import axios from "axios";
 import {css} from '@emotion/react';
 
 const styles = (formSent) => css`
-position: absolute;
 opacity: 0;
-transition: 1s;
+position: absolute;
+background-color: white;
+transition: height 1s,opacity 1s;
+
+width: 960px;
+height: 0px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+@media (max-width: 1024px) {
+    width: 100%;
+    
+}
 ${formSent === true &&`
-opacity: 1;
-position: fixed;
-left:5%;
-top: 40%;
-width: 90%;
-height: 40%;
-text-align: center;
-background-color: green;
-color: white;
+transition: height 0s,opacity 1s;
+opacity: 0.9;
+height: 500px;
+@media (max-width: 1024px) {
+    width: 100%;
+    height: 100%;
+    }
 `}
 `
 
@@ -148,6 +158,18 @@ const Contact = () => {
           form.reset();
         }
       };
+
+      useEffect(() => {
+          if (serverState.formSent === true) {
+            setTimeout(() => {
+                setServerState({
+                    formSent: false
+                })
+            }, 3000)
+          }
+      })
+
+
       const handleOnSubmit = e => {
         e.preventDefault();
         console.log("press")
@@ -203,7 +225,10 @@ const Contact = () => {
 
         <ContactDiv>
         {/* class={serverState.formSent ? "sent" : ""} */}
-            <span css={styles(serverState.formSent)}>Form Submitted!</span>
+            <span css={styles(serverState.formSent)}>
+                <h1>Message Sent</h1>
+                <p>I'll be in touch shortly. Regards, Rob.</p>
+            </span>
             <ContactInfo>
             <h1>Contact:</h1>
             <p>For a no obligations discussion to see if Robs a fit for you please use the contact information below or send an enquiry.</p>
