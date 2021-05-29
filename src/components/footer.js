@@ -18,7 +18,7 @@ a{
     text-decoration: none;
     padding: 12px 8px;
 }
-a:hover {
+button:hover {
     cursor: pointer;
 }
 p {
@@ -38,6 +38,18 @@ flex-direction: column;
 text-align: left;
 justify-content: end;
 
+button {
+    font-family: 'serif';
+    background: none;
+    color: white;
+    border: none;
+    padding: 0 18px;
+    min-height: 70px;
+    font-size: 1em;
+}
+
+
+
 `
 const Copyright = styled.div`
 /* background-color: #4D5F8B; */
@@ -51,6 +63,20 @@ a {
 }
 `
 
+const Banner = styled(Copyright)`
+/* background-color: #4D5F8B; */
+color: white;
+font-family: "open sans";
+font-size: 1.2em;
+a {
+    transition: .3s;
+    margin: 0;
+}
+a:hover {
+    color: black;
+}
+`
+
 
 const blog = () => {
     return(
@@ -58,9 +84,9 @@ const blog = () => {
             <LinkSection>
                 <Links>
                     {/* <a onClick={() => {scrollTo("#homeSection","center");}}>Home</a> */}
-                    <a onClick={() => {scrollTo("#homeSection","center");}}>Services</a>
-                    <a onClick={() => {scrollTo("#aboutSection","center");}}>About</a>
-                    <a onClick={() => {scrollTo("#contactSection","center");}}>Contact</a>     
+                    <button onClick={() => {scrollTo("#homeSection","center");}}>Services</button>
+                    <button onClick={() => {scrollTo("#aboutSection","center");}}>About</button>
+                    <button onClick={() => {scrollTo("#contactSection","center");}}>Contact</button>     
                 </Links>
                 <Links>
                     <p>Postal:</p>
@@ -75,7 +101,9 @@ const blog = () => {
                 </Links>
                 
             </LinkSection>
-            <Copyright><a href="https://www.danielballoch.com">© {new Date().getFullYear()}, {` `}Rob Quin</a> <a href="https://www.danielballoch.com">Terms & Conditions/Privacy Policy</a></Copyright>  
+            <Banner>Website by <a href="https://www.thoughtfulhq.com">thoughtfulHQ</a></Banner>
+            <Copyright><a href="https://www.robquin.co.nz/">© {new Date().getFullYear()}, {` `}Rob Quin</a> <a href="/privacy-policy">Privacy Policy</a></Copyright>  
+            
         </div>
   
     )

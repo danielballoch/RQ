@@ -112,6 +112,11 @@ form {
 }
 `
 
+const MobileId = styled.div`
+position: absolute;
+top: -100px;
+`
+
 const ContactInfo = styled.div`
 display: flex;
 
@@ -122,6 +127,7 @@ width: 100%;
 h1, ul, p {
     width: 270px;
 }
+
 
 @media (max-width: 1024px) {
     h1, ul, p {
@@ -176,19 +182,19 @@ const Contact = () => {
         setServerState({
             formSent: !serverState.formSent
         });
-        // const form = e.target;
-        // setServerState({ submitting: true });
-        // axios({
-        //   method: "post",
-        //   url: "https://getform.io/f/1db4c410-82ad-415d-a3bd-da32a6487bb4",
-        //   data: new FormData(form)
-        // })
-        //   .then(r => {
-        //     handleServerResponse(true, "Thanks!", form);
-        //   })
-        //   .catch(r => {
-        //     handleServerResponse(false, r.response.data.error, form);
-        //   });
+        const form = e.target;
+        setServerState({ submitting: true });
+        axios({
+          method: "post",
+          url: "https://getform.io/f/1db4c410-82ad-415d-a3bd-da32a6487bb4",
+          data: new FormData(form)
+        })
+          .then(r => {
+            handleServerResponse(true, "Thanks!", form);
+          })
+          .catch(r => {
+            handleServerResponse(false, r.response.data.error, form);
+          });
       };
       
       console.log("ServerState:", serverState)
@@ -229,6 +235,7 @@ const Contact = () => {
                 <h1>Message Sent</h1>
                 <p>I'll be in touch shortly. Regards, Rob.</p>
             </span>
+            <MobileId id="contactM"/>
             <ContactInfo>
             <h1>Contact:</h1>
             <p>For a no obligations discussion to see if Robs a fit for you please use the contact information below or send an enquiry.</p>
@@ -243,15 +250,15 @@ const Contact = () => {
                 <form onSubmit={handleOnSubmit}>
                     <label>
                             <p>Name:</p>
-                            <input type="text" name="name" />
+                            <input type="text" name="name" required/>
                     </label>
                     <label>
                         <p>Email:</p>
-                        <input type="email" name="email" />
+                        <input type="email" name="email" required/>
                     </label>
                     <label>
                         <p>Enquiry:</p>
-                        <textarea name="message" id="message" rows="5" />
+                        <textarea name="message" id="message" rows="5" required/>
                     </label>
                     <button type="submit">Send</button>
                 </form>

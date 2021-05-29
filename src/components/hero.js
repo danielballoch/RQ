@@ -155,8 +155,8 @@ function HeroComponent ({specialties, courts}) {
                 <HeroTextMobile>
                 <h3>Courts</h3>
                         <ul>
-                        {courts.map((court) => (
-                            <li>{court}</li>
+                        {courts.map((court, i) => (
+                            <li key={"court" + i}>{court}</li>
                         ))}
                         </ul>
                 </HeroTextMobile>

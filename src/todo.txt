@@ -86,3 +86,19 @@ https://reactjs.org/docs/hooks-effect.html
 
 28/05/2021 
 -try useEffect instead of function
+-done, now add form function back, test, switch email and redirect!
+
+29/05/2021
+-form working, added required tags and added function back
+-added basic privacy statment, now i need to update navigation buttons so user can get back to homepage
+
+*this means I need to get current page location in nav
+https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-link/ 
+https://reach.tech/router/api/Link 
+
+https://www.gatsbyjs.com/docs/location-data-from-props/ 
+
+-location data passed through pages -> layout -> nav, now the only trouble is scroll position changing when I'm linking to div id's 
+https://github.com/gatsbyjs/gatsby/issues/19488
+https://github.com/gatsbyjs/gatsby/issues/19480 
+

@@ -1,4 +1,4 @@
-import React, {Component, useState} from "react"
+import React, {useState} from "react"
 import styled from '@emotion/styled';
 import {css} from '@emotion/react';
 import scrollTo from 'gatsby-plugin-smoothscroll';
@@ -108,7 +108,7 @@ flex-direction: column;
 justify-content: center;
 transform: translateX(100%);
 background-color: white;
-a:hover {
+button:hover {
     cursor: pointer;
 }
 transition: .3s;
@@ -200,9 +200,10 @@ border-bottom: white 2px solid;
     }
 `
 
-const DrawerLink = styled.a`
+const DrawerLink = styled.button`
 color: black;
-text-decoration: none;
+background: none;
+border: none;
 padding: 10px 20px;
 font-size: 1.5em;
 :hover{
@@ -230,9 +231,42 @@ p {
 }
 `
 
-export default function Nav(){
+
+
+export default function Nav({pageLocation}){
     const [menuOpen, setMenuOpen] = useState(false);
-    console.log(menuOpen)
+    console.log('navbar props', pageLocation)
+    let NavigationLinks = <Links> 
+        <NavLink href="/#homeSection" >
+            Services
+        </NavLink>
+            
+        <NavLink href="/#aboutSection" >
+            About
+        </NavLink>
+        
+        <NavLink href="/#contactSection" >
+            Contact
+        </NavLink>
+    </Links>
+    if (pageLocation === "/"){
+        NavigationLinks = (
+            <Links> 
+                <NavLink onClick={() => scrollTo("#homeSection","center")}>
+                    Services
+                </NavLink>
+                    
+                <NavLink onClick={() => scrollTo("#aboutSection","center")}>
+                    About
+                </NavLink>
+                
+                <NavLink onClick={() => scrollTo("#contactSection","center")}>
+                    Contact
+                </NavLink>
+            </Links>
+        )
+    } 
+
     return (
     <div>    
         <Navbar>
@@ -240,11 +274,8 @@ export default function Nav(){
                 <Logo>
                     <h1>Rob Quin</h1><p>Barrister LLB(Hons)</p>
                 </Logo>
-                <Links>
-                {/* <NavLink onClick={() => scrollTo("#homeSection","center")}>
-                        Home
-                    </NavLink> */}
-                    
+                {NavigationLinks}
+                {/* <Links>
                     <NavLink onClick={() => scrollTo("#homeSection","center")}>
                         Services
                     </NavLink>
@@ -256,7 +287,7 @@ export default function Nav(){
                     <NavLink onClick={() => scrollTo("#contactSection","center")}>
                         Contact
                     </NavLink>
-                </Links>
+                </Links> */}
                 <button css={styles({ menuOpen })} onClick={() => setMenuOpen(!menuOpen)} aria-label="Navigation menu toggle">
                     <span className="hamburger-box">
                         <span className={menuOpen? "hamburger-inner hamburger-inner-active" : "hamburger-inner"}></span>
@@ -268,6 +299,7 @@ export default function Nav(){
         {/* <DrawerLink onClick={() => {scrollTo("#homeM","start"); setMenuOpen(!menuOpen)}}>
             Home
         </DrawerLink> */}
+        
         <DrawerLink onClick={() => {scrollTo("#homeM","start"); setMenuOpen(!menuOpen)}}>
             Services
         </DrawerLink>

@@ -35,9 +35,9 @@ const about = ["He specialises in criminal and traffic law. He has an excellent 
 ];
 
 //components
-const IndexPage = () => {
+const IndexPage = ({location}) => {
   return (
-    <Layout>
+    <Layout pageLocation={location.pathname}>
         <main style={pageStyles}>
         <title>Home Page</title>
         <HeroComponent specialties={specialties} courts={courts}/>
