@@ -39,6 +39,8 @@ text-align: left;
 justify-content: end;
 
 button {
+    display: flex;
+    align-items: center;
     font-family: 'serif';
     background: none;
     color: white;
@@ -47,6 +49,21 @@ button {
     min-height: 70px;
     font-size: 1em;
 }
+
+a {
+    display: flex;
+    align-items: center;
+    font-family: 'serif';
+    background: none;
+    color: white;
+    border: none;
+    padding: 0 18px;
+    min-height: 70px;
+    font-size: 1em;
+    
+}
+
+
 
 
 
@@ -69,25 +86,40 @@ color: white;
 font-family: "open sans";
 font-size: 1.2em;
 a {
-    transition: .3s;
+    transition: .6s;
     margin: 0;
+    border-bottom: #283759 2px solid;
 }
-a:hover {
-    color: black;
-}
+a:hover{
+    transition: .3s;
+        border-bottom: white 2px solid;
+        cursor: pointer;
+    }
 `
 
 
-const blog = () => {
+const blog = ({pageLocation}) => {
+    let NavLinks = (
+        <Links>
+            <a href="/#homeM">Services</a>
+            <a href="/#aboutM">About</a>
+            <a href="/#contactM">Contact</a>     
+        </Links>
+    )
+    if (pageLocation === "/"){
+        NavLinks = (
+            <Links>
+                <button onClick={() => {scrollTo("#homeM","start");}}>Services</button>
+                <button onClick={() => {scrollTo("#aboutM","start");}}>About</button>
+                <button onClick={() => {scrollTo("#contactM","start");}}>Contact</button>     
+            </Links>
+        )
+    }
+
     return(
         <div>
             <LinkSection>
-                <Links>
-                    {/* <a onClick={() => {scrollTo("#homeSection","center");}}>Home</a> */}
-                    <button onClick={() => {scrollTo("#homeSection","center");}}>Services</button>
-                    <button onClick={() => {scrollTo("#aboutSection","center");}}>About</button>
-                    <button onClick={() => {scrollTo("#contactSection","center");}}>Contact</button>     
-                </Links>
+                {NavLinks}
                 <Links>
                     <p>Postal:</p>
                     <p>PO Box 20109</p>

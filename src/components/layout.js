@@ -49,7 +49,7 @@ const Layout = ({ children, pageLocation}) => {
         />
         <Nav pageLocation={pageLocation}/>
         <main>{children}</main>
-        <Footer/>
+        <Footer pageLocation={pageLocation}/>
       </div>
     </>
   )

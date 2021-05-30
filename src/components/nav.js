@@ -201,7 +201,22 @@ border-bottom: white 2px solid;
 `
 
 const DrawerLink = styled.button`
+font-family: 'Open Sans';
 color: black;
+background: none;
+border: none;
+padding: 10px 20px;
+font-size: 1.5em;
+:hover{
+        cursor: pointer;
+    }
+`
+
+const DrawerLinkA = styled.a`
+font-family: 'Open Sans';
+color: black;
+text-align: center;
+text-decoration: none;
 background: none;
 border: none;
 padding: 10px 20px;
@@ -237,15 +252,15 @@ export default function Nav({pageLocation}){
     const [menuOpen, setMenuOpen] = useState(false);
     console.log('navbar props', pageLocation)
     let NavigationLinks = <Links> 
-        <NavLink href="/#homeSection" >
+        <NavLink href="/#homeM" >
             Services
         </NavLink>
             
-        <NavLink href="/#aboutSection" >
+        <NavLink href="/#aboutM" >
             About
         </NavLink>
         
-        <NavLink href="/#contactSection" >
+        <NavLink href="/#contactM" >
             Contact
         </NavLink>
     </Links>
@@ -266,6 +281,34 @@ export default function Nav({pageLocation}){
             </Links>
         )
     } 
+    let DrawerLinks = (
+        <div css={sidebarStyles({ menuOpen })}>
+            <DrawerLinkA href="/#homeM">
+                Services
+            </DrawerLinkA>
+            <DrawerLinkA href="/#aboutM">
+                About
+            </DrawerLinkA>
+            <DrawerLinkA href="/#contactM">
+                Contact
+            </DrawerLinkA>
+        </div> 
+    )
+    if (pageLocation === "/"){
+        DrawerLinks = (
+            <div css={sidebarStyles({ menuOpen })}>
+            <DrawerLink onClick={() => {scrollTo("#homeM","start"); setMenuOpen(!menuOpen)}}>
+                Services
+            </DrawerLink>
+            <DrawerLink onClick={() => {scrollTo("#aboutM","start"); setMenuOpen(!menuOpen)}}>
+                About
+            </DrawerLink>
+            <DrawerLink onClick={() => {scrollTo("#contactM","start"); setMenuOpen(!menuOpen)}}>
+                Contact
+            </DrawerLink>
+        </div> 
+        )
+    }
 
     return (
     <div>    
@@ -275,19 +318,6 @@ export default function Nav({pageLocation}){
                     <h1>Rob Quin</h1><p>Barrister LLB(Hons)</p>
                 </Logo>
                 {NavigationLinks}
-                {/* <Links>
-                    <NavLink onClick={() => scrollTo("#homeSection","center")}>
-                        Services
-                    </NavLink>
-                    
-                    <NavLink onClick={() => scrollTo("#aboutSection","center")}>
-                        About
-                    </NavLink>
-                    
-                    <NavLink onClick={() => scrollTo("#contactSection","center")}>
-                        Contact
-                    </NavLink>
-                </Links> */}
                 <button css={styles({ menuOpen })} onClick={() => setMenuOpen(!menuOpen)} aria-label="Navigation menu toggle">
                     <span className="hamburger-box">
                         <span className={menuOpen? "hamburger-inner hamburger-inner-active" : "hamburger-inner"}></span>
@@ -295,21 +325,7 @@ export default function Nav({pageLocation}){
                 </button>
             </NavContent>
         </Navbar>
-    <div css={sidebarStyles({ menuOpen })}>
-        {/* <DrawerLink onClick={() => {scrollTo("#homeM","start"); setMenuOpen(!menuOpen)}}>
-            Home
-        </DrawerLink> */}
-        
-        <DrawerLink onClick={() => {scrollTo("#homeM","start"); setMenuOpen(!menuOpen)}}>
-            Services
-        </DrawerLink>
-        <DrawerLink onClick={() => {scrollTo("#aboutM","start"); setMenuOpen(!menuOpen)}}>
-            About
-        </DrawerLink>
-        <DrawerLink onClick={() => {scrollTo("#contactM","start"); setMenuOpen(!menuOpen)}}>
-            Contact
-        </DrawerLink>
-    </div> 
+    {DrawerLinks}
     <div css={backdropStyle({ menuOpen })} onClick={() => setMenuOpen(!menuOpen)}/>
     </div>
     )

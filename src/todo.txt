@@ -100,5 +100,11 @@ https://www.gatsbyjs.com/docs/location-data-from-props/
 
 -location data passed through pages -> layout -> nav, now the only trouble is scroll position changing when I'm linking to div id's 
 https://github.com/gatsbyjs/gatsby/issues/19488
+
+
 https://github.com/gatsbyjs/gatsby/issues/19480 
+try ^^^
+
+30/05/2021
+https://stackoverflow.com/questions/55336831/how-to-fix-gatsby-js-link-component-retaining-scroll-position-and-not-resetting 
 
