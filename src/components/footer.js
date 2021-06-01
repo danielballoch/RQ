@@ -1,6 +1,8 @@
 import React from "react"
 import styled from '@emotion/styled';
 import scrollTo from 'gatsby-plugin-smoothscroll';
+import { Link } from 'gatsby'
+import { OutboundLink } from "gatsby-plugin-google-gtag"
 
 const LinkSection = styled.div`
 display: flex;
@@ -133,7 +135,7 @@ const blog = ({pageLocation}) => {
                 </Links>
                 
             </LinkSection>
-            <Banner>Website by <a href="https://www.thoughtfulhq.com">thoughtfulHQ</a></Banner>
+            <Banner>Website by <OutboundLink href="https://www.thoughtfulhq.com">thoughtfulHQ</OutboundLink></Banner>
             <Copyright><a href="https://www.robquin.co.nz/">© {new Date().getFullYear()}, {` `}Rob Quin</a> <a href="/privacy-policy">Privacy Policy</a></Copyright>  
             
         </div>

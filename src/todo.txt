@@ -107,4 +107,21 @@ try ^^^
 
 30/05/2021
 https://stackoverflow.com/questions/55336831/how-to-fix-gatsby-js-link-component-retaining-scroll-position-and-not-resetting 
+* done - nav and footer nav in index and privacy policy all work now, thoughtfulHQ link is in
+project should be good to ship.
+
+1/06/2021
+-update DNS Record (currently points to 69.73.159.23) A & CNAME *done
+-add google analytics - gtag - done, just add outbound links *done
+-update a href links to gatsby Link component for inward links * all are inward bare thoughtfulHQ (anything with href should be changed to Link)
+-> Link doesnt do in-route navigation so navigate should be used instead -> navigate doesn't work either so I have to decide between functionality/cleaniss & performance
+-> will just leave as is for style points/UI (downside being slower speed)
+
+-Make sure SEO crawlers are working -> install sitemap *done -> install robots-txt * done (both could probably use more config but they're working)
+https://frontend-digest.com/a-technical-guide-to-seo-with-gatsby-js-e88a7dac80f0 
+
+-add gatsby-plugin-preload-fonts to stop font flicker on nav
+
+
+
 
