@@ -238,7 +238,7 @@ const Contact = () => {
             <MobileId id="contactM"/>
             <ContactInfo>
             <h1>Contact:</h1>
-            <p>For a no obligations discussion to see if Robs a fit for you please use the contact information below or send an enquiry.</p>
+            <p>For a no obligations discussion to see if Robs a fit for you, please use the contact information below or send an enquiry.</p>
             <ul>
                 <li>M 021 216 2841</li>
                 <li>P 07 839 2369</li>

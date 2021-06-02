@@ -120,8 +120,20 @@ project should be good to ship.
 -Make sure SEO crawlers are working -> install sitemap *done -> install robots-txt * done (both could probably use more config but they're working)
 https://frontend-digest.com/a-technical-guide-to-seo-with-gatsby-js-e88a7dac80f0 
 
--add gatsby-plugin-preload-fonts to stop font flicker on nav
+-add gatsby-plugin-preload-fonts to stop font flicker on nav *done
+-sitemap not being created -> siteURL in siteMetadata didn't have www. included 
+
+
+02/06/2021
+miraculously working now :) 
+
+
+-check analytics is implemented properly: https://www.youtube.com/watch?v=kO_GMfC1LHA
+-create facebook content
+-create thoughtfulHQ site
 
 
 
+https://moz.com/beginners-guide-to-seo/keyword-research 
+https://medium.com/yellowcode/how-to-do-meta-tags-in-gatsbyjs-45245dc68ab9 
 

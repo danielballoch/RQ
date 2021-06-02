@@ -40,16 +40,16 @@ const PrivacyPolicy = ({location}) => {
               <li>Follow up on your requests of our services.</li>
               <li>Refine our marketing and technology to best serve our customers.</li>
           </ol>
-          <p>All information is optional. If you choose not to enter your name or contact information, we'll be unable to provide law services. Interactions (including all google analytics data) can be opted out of by using the browser add on <a href="https://tools.google.com/dlpage/gaoptout">here</a>. If you choose to do this we will not be able to use your information to better our services.</p>
+          <p>All information is optional. If you choose not to enter your name or contact information, we will be unable to provide legal services. Interactions (including all google analytics data) can be opted out of by using the browser add-on <a href="https://tools.google.com/dlpage/gaoptout">here</a>. If you choose to do this, we will not be able to use your information to better our services.</p>
 
-          <p>More on google analytics and how this information is used <a href="https://policies.google.com/technologies/partner-sites?hl=en-GB&gl=uk">here</a></p>
+          <p>More on google analytics and how this information is used <a href="https://policies.google.com/technologies/partner-sites?hl=en-GB&gl=uk">here</a></p>.
           
 
-          <p>If you do give permission of the aformentioned use of personal information and web interactions monitoring via google analytics, we would like to note that all information is held securely and in confidence.</p>
+          <p>If you do give permission of the aformentioned use of personal information and web interaction monitoring via google analytics, we would like to note that all information is held securely and in confidence.</p>
 
-          <p>No information will be disclosed to any other person except: to the extent necessary or desirable to enable us to carry out our services.</p>
+          <p>No information will be disclosed to any other person except to the extent necessary or desirable to enable us to carry out our services.</p>
 
-          <p>You have the right to ask for a copy of any personal information we hold about you, and to ask for it to be corrected if you think it is wrong. If you’d like to ask for a copy of your information, or to have it corrected, please contact us at rob@robquin.co.nz, or 021 216 2841, or PO Box 20109 Te Rapa Hamilton 3241.</p>
+          <p>You have the right to ask for a copy of any personal information we hold about you, and to ask for it to be corrected if you think it is wrong. If you would like to ask for a copy of your information, or to have it corrected, please contact us at rob@robquin.co.nz, or 021 216 2841, or PO Box 20109 Te Rapa Hamilton 3241.</p>
           </Content>
           </main>
       </Layout>
