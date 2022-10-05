@@ -35,7 +35,7 @@ const Layout = ({ children, pageLocation}) => {
             <meta charSet="utf-8" lang="en"/>
             <meta name="description" content={data.site.siteMetadata.description}/>
             <title>{data.site.siteMetadata.title}</title>
-            <link rel="canonical" href={data.site.siteMetadata.siteUrl} />
+            <link rel="canonical" href={data.site.siteMetadata.siteUrl}/>
       </Helmet>
       <Global
           styles={css`

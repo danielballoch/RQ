@@ -5,7 +5,7 @@ module.exports = {
         He specialises in criminal and traffic law. He has an excellent record of obtaining the best
         possible outcomes for clients appearing in Court on a wide range of charges.`,
         author: `thoughtfulHQ`,
-        siteUrl: `https://www.robquin.co.nz`
+        siteUrl: `https://robquin.co.nz`
     },
   plugins: [
     "gatsby-plugin-sitemap",
@@ -24,8 +24,8 @@ module.exports = {
     {
         resolve: 'gatsby-plugin-robots-txt',
         options: {
-          host: 'https://www.robquin.co.nz',
-          sitemap: 'https://www.robquin.co.nz/sitemap.xml',
+          host: 'https://robquin.co.nz',
+          sitemap: 'https://robquin.co.nz/sitemap.xml',
           policy: [{ userAgent: '*', allow: '/' }]
         }
     },
