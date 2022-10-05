@@ -246,6 +246,16 @@ p {
     margin-left: 20px;
 }
 `
+const LogoLink = styled(Link)`
+margin: 0 !important;
+p {
+    font-size: 16px;
+}
+
+h1 {
+    color: black;
+}
+`
 
 
 
@@ -315,9 +325,11 @@ export default function Nav({pageLocation}){
     <div>    
         <Navbar>
             <NavContent>
-                <Logo>
-                    <h1>Rob Quin</h1><p>Barrister LLB(Hons)</p>
-                </Logo>
+                <LogoLink to="/">
+                    <Logo>
+                        <h1>Rob Quin</h1><p>Barrister LLB(Hons)</p>
+                    </Logo>
+                </LogoLink>
                 {NavigationLinks}
                 <button css={styles({ menuOpen })} onClick={() => setMenuOpen(!menuOpen)} aria-label="Navigation menu toggle">
                     <span className="hamburger-box">
