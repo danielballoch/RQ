@@ -30,8 +30,8 @@ function About ({aboutInfo}) {
             <AboutId id="aboutM"/>
             <AboutDiv id="aboutSection">
                 <h1 >Rob has been a lawyer in Hamilton since 2005 </h1>
-                {aboutInfo.map((paragraph)=>(
-                    <p>{paragraph}</p>
+                {aboutInfo.map((paragraph, i)=>(
+                    <p key={"paragraph" + i}>{paragraph}</p>
                 ))}
             </AboutDiv>
         </div>
